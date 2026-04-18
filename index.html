@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yiu Yin YUNG</title>
     <style>
-        /* CSS Variables: Zen Monochrome + Earthy Brown */
+        /* CSS Variables: Zen Monochrome + Warm Terracotta */
         :root {
             --bg-main: #fcfcfc; 
             --bg-hero: #e8e8e8; 
             --text-main: #2b2b2b; 
             --text-muted: #7a7a7a; 
             --accent-dark: #000000; 
-            --link-brown: #593c27; /* Earthy temple wood brown */
+            --link-brown: #a04000; /* Brighter, warm terracotta/clay brown so it pops */
             --border-light: #dcdcdc; 
             --bar-bg: #eaeaea;
         }
@@ -36,6 +36,7 @@
             color: var(--link-brown);
             text-decoration: none;
             border-bottom: 1px solid var(--link-brown);
+            font-weight: 400; /* Makes the links slightly thicker than the normal text */
             transition: all 0.3s ease;
         }
 
@@ -44,10 +45,16 @@
             border-bottom: 1px solid var(--accent-dark);
         }
 
-        /* Desaturate emojis slightly to maintain the Zen vibe */
+        /* Desaturate specific icons to maintain the Zen vibe */
         .zen-icon {
             filter: grayscale(80%) opacity(0.85);
             display: inline-block;
+        }
+
+        /* Keep hobby emojis slightly desaturated so they don't break the color palette */
+        .hobby-emoji {
+            filter: saturate(0.6);
+            margin-left: 5px;
         }
 
         /* -------------------------------------
@@ -111,7 +118,7 @@
             transition: transform 0.4s ease, opacity 0.4s ease;
             text-decoration: none;
             border: none;
-            opacity: 0.8;
+            opacity: 0.9;
         }
 
         .hero-contact a:hover {
@@ -139,6 +146,13 @@
         .hero-about strong {
             font-weight: 500;
             color: var(--accent-dark);
+        }
+
+        .research-list {
+            margin-top: 5px;
+            line-height: 1.8;
+            padding-left: 10px;
+            border-left: 2px solid var(--border-light);
         }
 
         /* -------------------------------------
@@ -350,7 +364,12 @@
                     
                     <p>I am an incoming PhD student at the <a href="https://www.mrc-bsu.cam.ac.uk/" target="_blank">University of Cambridge MRC Biostatistics Unit</a>, where I will be supervised by <a href="https://www.mrc-bsu.cam.ac.uk/staff/robert-goudie" target="_blank">Dr. Robert Goudie</a> and <a href="https://www.mrc-bsu.cam.ac.uk/staff/brian-tom" target="_blank">Dr. Brian Tom</a>.</p>
                     
-                    <p><strong>Research Interests:</strong> Predictive Bayes, Martingale Posteriors, Generalised Bayes, Cut Model Inference, Empirical Likelihood, and Causal Inference.</p>
+                    <p><strong>Research Interests:</strong></p>
+                    <div class="research-list">
+                        Predictive Bayes, Martingale Posteriors<br>
+                        Generalised Bayes, Cut Model Inference, Empirical Likelihood<br>
+                        Causal Inference
+                    </div>
                 </div>
             </div>
 
@@ -375,7 +394,7 @@
             <h2>News</h2>
             <ul class="item-list">
                 <li>
-                    <span class="date-tag">[Upcoming 2026]</span> I will deliver an Oral presentation for my paper <em>Moment Martingale Posteriors for Semiparametric Predictive Bayes</em> during the ISBA World Meeting 2026.
+                    <span class="date-tag">[Upcoming 2026]</span> 🎉 I will deliver an Oral presentation for my paper <em>Moment Martingale Posteriors for Semiparametric Predictive Bayes</em> during the ISBA World Meeting 2026.
                 </li>
             </ul>
         </section>
@@ -471,27 +490,27 @@
                     <h3>Hobbies</h3>
                     
                     <div class="skill">
-                        <div class="skill-name"><span>Singing</span></div>
+                        <div class="skill-name"><span>Singing <span class="hobby-emoji">🎤</span></span></div>
                         <div class="zen-bar"><div class="zen-fill" style="width: 100%; background-color: #000000;"></div></div>
                     </div>
 
                     <div class="skill">
-                        <div class="skill-name"><span>Movies</span></div>
+                        <div class="skill-name"><span>Movies <span class="hobby-emoji">🎬</span></span></div>
                         <div class="zen-bar"><div class="zen-fill" style="width: 100%; background-color: #000000;"></div></div>
                     </div>
 
                     <div class="skill">
-                        <div class="skill-name"><span>Swimming</span></div>
+                        <div class="skill-name"><span>Swimming <span class="hobby-emoji">🏊</span></span></div>
                         <div class="zen-bar"><div class="zen-fill" style="width: 80%; background-color: #333333;"></div></div>
                     </div>
 
                     <div class="skill">
-                        <div class="skill-name"><span>Photography</span></div>
+                        <div class="skill-name"><span>Photography <span class="hobby-emoji">📸</span></span></div>
                         <div class="zen-bar"><div class="zen-fill" style="width: 70%; background-color: #4d4d4d;"></div></div>
                     </div>
 
                     <div class="skill">
-                        <div class="skill-name"><span>Karate</span></div>
+                        <div class="skill-name"><span>Karate <span class="hobby-emoji">🥋</span></span></div>
                         <div class="zen-bar"><div class="zen-fill" style="width: 50%; background-color: #808080;"></div></div>
                     </div>
                 </div>
