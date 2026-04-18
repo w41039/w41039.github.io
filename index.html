@@ -61,12 +61,12 @@
             max-width: 1000px;
             width: 100%;
             gap: 60px;
-            align-items: center; /* Vertically centers the text with the photo */
+            align-items: center;
         }
 
         /* Left Side: Photo and Contact */
         .hero-left {
-            flex: 0 0 300px; /* Fixed width for the profile section */
+            flex: 0 0 300px;
             text-align: center;
         }
 
@@ -94,27 +94,32 @@
             line-height: 1.4;
         }
 
+        /* Updated Contact Icons */
         .hero-contact {
             display: flex;
-            flex-direction: column;
-            gap: 12px;
-            align-items: center;
+            flex-direction: row;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 10px;
         }
 
         .hero-contact a {
             color: white;
-            border: 1px solid rgba(255,255,255,0.5);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.95em;
-            width: 80%;
-            box-sizing: border-box;
+            border: 2px solid rgba(255,255,255,0.5);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.5em;
+            transition: all 0.3s ease;
+            text-decoration: none;
         }
 
         .hero-contact a:hover {
             background-color: white;
-            color: var(--hero-bg);
-            text-decoration: none;
+            transform: scale(1.1);
         }
 
         /* Right Side: About Me */
@@ -342,8 +347,8 @@
                 <h1>Yiu Yin YUNG</h1>
                 
                 <div class="hero-contact">
-                    <a href="mailto:u3568933@connect.hku.hk">📧 u3568933@connect.hku.hk</a>
-                    <a href="https://scholar.google.com/citations?hl=zh-CN&user=dE3RppcAAAAJ" target="_blank">🎓 Google Scholar</a>
+                    <a href="mailto:u3568933@connect.hku.hk" title="Email Me">📧</a>
+                    <a href="https://scholar.google.com/citations?hl=zh-CN&user=dE3RppcAAAAJ" target="_blank" title="Google Scholar">🎓</a>
                 </div>
             </div>
 
@@ -387,19 +392,17 @@
             <h2>Education</h2>
             <ul class="edu-list">
                 <li>
-                    <strong>University of Cambridge (2026-2029)</strong> <span class="date-tag"></span><br>
-                    PhD in Biostatistics, MRC Biostatistics Unit<br>
+                    <strong>University of Cambridge</strong> <span class="date-tag"></span><br>
+                    PhD in Biostatistics, MRC Biostatistics Unit (Queens' College)<br>
                     <em>Supervisors: Dr. Robert Goudie and Dr. Brian Tom</em>
-                    </span><br>
-                    Queens' College<br>
                 </li>
                 <li>
-                    <strong>The University of Hong Kong (2024-2026)</strong> <span class="date-tag"></span><br>
+                    <strong>The University of Hong Kong</strong> <span class="date-tag"></span><br>
                     MPhil in Statistics, Department of Statistics and Actuarial Science<br>
                     <em>Supervisors: Dr. Edwin Fong and Prof. Stephen Lee</em>
                 </li>
                 <li>
-                    <strong>The University of Hong Kong (2019-2024)</strong> <span class="date-tag"></span><br>
+                    <strong>The University of Hong Kong</strong> <span class="date-tag"></span><br>
                     BSc in Statistics, Department of Statistics and Actuarial Science
                 </li>
             </ul>
