@@ -3,78 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yiu Yin YUNG - Personal Website</title>
+    <title>Yiu Yin YUNG</title>
     <style>
+        /* CSS Variables to match the theme */
         :root {
-            --primary-color: #2c3e50;
-            --link-color: #2980b9;
-            --link-hover: #1abc9c;
-            --text-color: #333333;
+            --primary-text: #333;
+            --secondary-text: #737373;
+            --link-color: #0072b3;
+            --link-hover: #004b76;
             --bg-color: #ffffff;
-            --highlight: #c0392b;
+            --sidebar-bg: #f5f5f5;
+            --border-color: #eaeaea;
+            --bar-bg: #e0e0e0;
+            --bar-fill: #4caf50;
         }
-        
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
+            color: var(--primary-text);
             background-color: var(--bg-color);
+            line-height: 1.6;
             margin: 0;
             padding: 0;
-        }
-
-        .container {
-            display: flex;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        /* Sidebar Profile Section */
-        .sidebar {
-            flex: 1;
-            padding-right: 40px;
-            min-width: 250px;
-        }
-
-        .sidebar h1 {
-            color: var(--primary-color);
-            margin-bottom: 5px;
-            font-size: 2em;
-        }
-
-        .contact-info {
-            margin-top: 20px;
-            font-size: 0.95em;
-        }
-
-        .contact-info a {
-            display: block;
-            margin-bottom: 10px;
-            color: var(--link-color);
-            text-decoration: none;
-        }
-
-        .contact-info a:hover {
-            color: var(--link-hover);
-            text-decoration: underline;
-        }
-
-        /* Main Content Section */
-        .content {
-            flex: 2.5;
-        }
-
-        h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-            margin-top: 0;
-            font-size: 1.5em;
-        }
-
-        section {
-            margin-bottom: 40px;
         }
 
         a {
@@ -84,82 +34,349 @@
 
         a:hover {
             text-decoration: underline;
+            color: var(--link-hover);
         }
 
-        .highlight {
-            color: var(--highlight);
-            font-weight: bold;
-            font-size: 0.9em;
-            display: inline-block;
-            margin-top: 5px;
+        /* Top Navigation */
+        .navbar {
+            border-top: 5px solid var(--primary-text);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 0;
+            background: var(--bg-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        ul {
-            padding-left: 20px;
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: flex-end;
+            padding: 0 20px;
         }
 
-        li {
+        .nav-container a {
+            margin-left: 20px;
+            color: var(--primary-text);
+            font-weight: 500;
+            font-size: 0.95em;
+        }
+
+        .nav-container a:hover {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        /* Main Page Layout */
+        .page-wrapper {
+            max-width: 1100px;
+            margin: 40px auto;
+            display: flex;
+            padding: 0 20px;
+            gap: 40px;
+        }
+
+        /* Left Sidebar (Profile) */
+        .sidebar {
+            flex: 0 0 280px;
+        }
+
+        .profile-img {
+            width: 100%;
+            border-radius: 5px; /* Square with rounded corners like the theme */
             margin-bottom: 15px;
         }
 
-        /* Responsive Design for Mobile */
-        @media (max-width: 768px) {
-            .container {
+        .sidebar h1 {
+            font-size: 1.5em;
+            margin: 0 0 5px 0;
+            color: var(--primary-text);
+        }
+
+        .sidebar h2 {
+            font-size: 1.1em;
+            font-weight: normal;
+            color: var(--secondary-text);
+            margin: 0 0 20px 0;
+        }
+
+        .contact-info {
+            font-size: 0.9em;
+            margin-bottom: 30px;
+        }
+
+        .contact-info div {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Progress Bars for Languages & Hobbies */
+        .sidebar-section {
+            margin-bottom: 25px;
+        }
+
+        .sidebar-section h3 {
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            color: var(--secondary-text);
+        }
+
+        .skill {
+            margin-bottom: 12px;
+            font-size: 0.85em;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3px;
+        }
+
+        .skill-bar {
+            background-color: var(--bar-bg);
+            border-radius: 3px;
+            height: 6px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            background-color: var(--bar-fill);
+            height: 100%;
+        }
+
+        /* Right Content Area */
+        .content {
+            flex: 1;
+            min-width: 0; /* Prevents flex blowout */
+        }
+
+        .content h2 {
+            font-size: 1.7em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        /* Lists formatting */
+        .item-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .item-list li {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .item-list li::before {
+            content: "•";
+            color: var(--link-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .date-tag {
+            color: var(--secondary-text);
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .highlight-tag {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-top: 5px;
+            display: inline-block;
+        }
+
+        /* Responsive */
+        @media (max-width: 800px) {
+            .page-wrapper {
                 flex-direction: column;
             }
             .sidebar {
-                padding-right: 0;
-                margin-bottom: 40px;
+                flex: none;
+                width: 100%;
                 text-align: center;
-                border-bottom: 2px solid #eee;
+                border-bottom: 1px solid var(--border-color);
                 padding-bottom: 20px;
+            }
+            .contact-info div {
+                justify-content: center;
+            }
+            .nav-container {
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="sidebar">
-        <h1>Yiu Yin YUNG</h1>
-        <div class="contact-info">
-            <a href="mailto:u3568933@connect.hku.hk">📧 u3568933@connect.hku.hk</a>
-            <a href="https://scholar.google.com/citations?hl=zh-CN&user=dE3RppcAAAAJ" target="_blank">🎓 Google Scholar</a>
-            </div>
-    </div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#about">About</a>
+            <a href="#news">News</a>
+            <a href="#experience">Experience</a>
+            <a href="#publications">Publications</a>
+            <a href="#awards">Awards</a>
+        </div>
+    </nav>
 
-    <div class="content">
+    <div class="page-wrapper">
         
-        <section id="about">
-            <h2>About Me</h2>
-            <p>I am currently an MPhil student at the <a href="https://saasweb.hku.hk/" target="_blank">Department of Statistics and Actuarial Science, University of Hong Kong</a>, where I am fortunate to be supervised by <a href="https://edfong.github.io/" target="_blank">Dr. Edwin Fong</a> and co-supervised by <a href="https://saasweb.hku.hk/staff/smslee/" target="_blank">Prof. Stephen Lee</a>. Prior to this, I completed my undergraduate studies at the same department.</p>
+        <aside class="sidebar">
+            <img src="profile.jpg" alt="Yiu Yin YUNG" class="profile-img">
+            <h1>Yiu Yin YUNG</h1>
+            <h2>MPhil Student, HKU<br>Incoming PhD, Cambridge</h2>
             
-            <p>I am an incoming PhD student at the <a href="https://www.mrc-bsu.cam.ac.uk/" target="_blank">University of Cambridge MRC Biostatistics Unit (BSU) </a>, where I will be supervised by <a href="https://www.mrc-bsu.cam.ac.uk/staff/robert-goudie" target="_blank">Dr. Robert Goudie</a> and <a href="https://www.mrc-bsu.cam.ac.uk/staff/brian-tom" target="_blank">Dr. Brian Tom</a>.</p>
-        </section>
+            <div class="contact-info">
+                <div>📧 <a href="mailto:u3568933@connect.hku.hk" style="margin-left: 10px;">u3568933@connect.hku.hk</a></div>
+                <div>🎓 <a href="https://scholar.google.com/citations?hl=zh-CN&user=dE3RppcAAAAJ" target="_blank" style="margin-left: 10px;">Google Scholar</a></div>
+                <div>📍 <span style="margin-left: 10px;">Hong Kong / UK</span></div>
+            </div>
 
-        <section id="research">
-            <h2>Research Interests</h2>
-            <ul>
-                <li>Predictive Bayes, Martingale Posteriors</li>
-                <li>Generalised Bayes, Cut Model Inference, Empirical Likelihood</li>
-                <li>Causal Inference</li>
-            </ul>
-        </section>
+            <div class="sidebar-section">
+                <h3>Languages</h3>
+                
+                <div class="skill">
+                    <div class="skill-name"><span>Chinese Mandarin</span><span>10/10</span></div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 100%;"></div></div>
+                </div>
+                
+                <div class="skill">
+                    <div class="skill-name"><span>Chinese Cantonese</span><span>10/10</span></div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 100%;"></div></div>
+                </div>
 
-        <section id="publications">
-            <h2>Publications</h2>
-            <ul>
-                <li>
-                    <strong>Moment Martingale Posteriors for Semiparametric Predictive Bayes.</strong><br>
-                    Yung, Y. Y., Lee, S., & Fong, E. (2025).<br>
-                    <em>arXiv preprint arXiv:2507.18148.</em><br>
-                    <span class="highlight">[Oral presentation at ISBA World Meeting 2026]</span>
-                </li>
-            </ul>
-        </section>
+                <div class="skill">
+                    <div class="skill-name"><span>English</span><span>8.3/10</span></div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 83.3%;"></div></div>
+                </div>
+            </div>
 
+            <div class="sidebar-section">
+                <h3>Hobbies</h3>
+                
+                <div class="skill">
+                    <div class="skill-name"><span>Singing</span><span>10/10</span></div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 100%;"></div></div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name"><span>Movies</span><span>10/10</span></div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 100%;"></div></div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name"><span>Swimming</span><span>8/10</span></div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 80%;"></div></div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name"><span>Photography</span><span>7/10</span></div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 70%;"></div></div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name"><span>Karate</span><span>5/10</span></div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 50%;"></div></div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="content">
+            
+            <section id="about">
+                <h2>About Me</h2>
+                <p>I am currently an MPhil student at the <a href="https://saasweb.hku.hk/" target="_blank">Department of Statistics and Actuarial Science at the University of Hong Kong</a>, where I am fortunate to be supervised by <a href="https://edfong.github.io/" target="_blank">Dr. Edwin Fong</a> and co-supervised by <a href="https://saasweb.hku.hk/staff/smslee/" target="_blank">Prof. Stephen Lee</a>. Prior to this, I completed my undergraduate studies at the same department.</p>
+                
+                <p>I am an incoming PhD student at the <a href="https://www.mrc-bsu.cam.ac.uk/" target="_blank">University of Cambridge MRC Biostatistics Unit</a>, where I will be supervised by <a href="https://www.mrc-bsu.cam.ac.uk/staff/robert-goudie" target="_blank">Dr. Robert Goudie</a> and <a href="https://www.mrc-bsu.cam.ac.uk/staff/brian-tom" target="_blank">Dr. Brian Tom</a>.</p>
+                
+                <p><strong>Research Interests:</strong> Predictive Bayes, Martingale Posteriors, Generalised Bayes, Cut Model Inference, Empirical Likelihood, and Causal Inference.</p>
+            </section>
+
+            <section id="news">
+                <h2>News</h2>
+                <ul class="item-list">
+                    <li>
+                        <span class="date-tag">[Upcoming 2026]</span> I will deliver an Oral presentation for my paper <em>Moment Martingale Posteriors for Semiparametric Predictive Bayes</em> during the ISBA World Meeting 2026.
+                    </li>
+                </ul>
+            </section>
+
+            <section id="experience">
+                <h2>Experience & Education</h2>
+                <ul class="item-list">
+                    <li>
+                        <strong>University of Cambridge</strong> <span class="date-tag">(2026 - Present)</span><br>
+                        PhD in Biostatistics, MRC Biostatistics Unit<br>
+                        <em>Supervisors: Dr. Robert Goudie and Dr. Brian Tom</em>
+                    </li>
+                    <li>
+                        <strong>The University of Hong Kong</strong> <span class="date-tag">(2024 - 2026)</span><br>
+                        MPhil in Statistics, Department of Statistics and Actuarial Science<br>
+                        <em>Supervisors: Dr. Edwin Fong and Prof. Stephen Lee</em>
+                    </li>
+                    <li>
+                        <strong>The University of Hong Kong</strong> <span class="date-tag">(Prior to 2024)</span><br>
+                        Undergraduate Studies, Department of Statistics and Actuarial Science
+                    </li>
+                </ul>
+            </section>
+
+            <section id="publications">
+                <h2>Publications</h2>
+                <ul class="item-list">
+                    <li>
+                        <strong>Moment Martingale Posteriors for Semiparametric Predictive Bayes.</strong><br>
+                        Yung, Y. Y., Lee, S., & Fong, E. (2025).<br>
+                        <em>arXiv preprint arXiv:2507.18148.</em><br>
+                        <span class="highlight-tag">Oral Presentation at ISBA World Meeting 2026</span>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="awards">
+                <h2>Awards & Honors</h2>
+                <ul class="item-list">
+                    <li>
+                        <strong>MRC BSU Studentship and UKRI International Fee Bursary</strong> <span class="date-tag">(2026-2029)</span><br>
+                        Fully-funded scholarship for my PhD programme.
+                    </li>
+                    <li>
+                        <strong>Postgraduate Scholarship</strong> <span class="date-tag">(2024-2026)</span><br>
+                        Fully-funded scholarship for my MPhil studies.
+                    </li>
+                    <li>
+                        <strong>Saw Prize in Statistics</strong><br>
+                        Awarded annually to a final-year student whose first major is decision analytics, risk management, or statistics, and who has the highest average marks in the papers taken for Statistics courses.
+                    </li>
+                </ul>
+            </section>
+
+        </main>
     </div>
-</div>
 
 </body>
 </html>
