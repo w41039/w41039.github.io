@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yiu Yin YUNG</title>
     <style>
-        /* CSS Variables: Zen Monochrome Palette */
+        /* CSS Variables: Zen Monochrome + Earthy Brown */
         :root {
-            --bg-main: #fcfcfc; /* Crisp, airy white */
-            --bg-hero: #f4f4f4; /* Soft stone grey for the first page */
-            --text-main: #2b2b2b; /* Deep charcoal (easier on eyes than pure black) */
-            --text-muted: #7a7a7a; /* Ash grey */
-            --accent-dark: #000000; /* Pure black for interactions */
-            --border-light: #e0e0e0;
+            --bg-main: #fcfcfc; 
+            --bg-hero: #e8e8e8; 
+            --text-main: #2b2b2b; 
+            --text-muted: #7a7a7a; 
+            --accent-dark: #000000; 
+            --link-brown: #593c27; /* Earthy temple wood brown */
+            --border-light: #dcdcdc; 
             --bar-bg: #eaeaea;
-            --bar-fill: #333333; /* Ink black */
         }
 
         /* Smooth scrolling behavior */
@@ -26,16 +26,16 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", "Inter", Arial, sans-serif;
             color: var(--text-main);
             background-color: var(--bg-main);
-            line-height: 1.7; /* Slightly increased for more breathing room */
+            line-height: 1.7; 
             margin: 0;
             padding: 0;
-            font-weight: 300; /* Lighter font weight for elegance */
+            font-weight: 300; 
         }
 
         a {
-            color: var(--text-main);
+            color: var(--link-brown);
             text-decoration: none;
-            border-bottom: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--link-brown);
             transition: all 0.3s ease;
         }
 
@@ -85,7 +85,7 @@
             object-fit: cover;
             border: none;
             margin-bottom: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06); /* Soft, airy shadow */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06); 
         }
 
         .hero h1 {
@@ -96,37 +96,29 @@
             color: var(--accent-dark);
         }
 
-        .hero h2 {
-            font-size: 1.05em;
-            font-weight: 300;
-            margin: 0 0 30px 0;
-            color: var(--text-muted);
-            line-height: 1.5;
-            letter-spacing: 0.5px;
-        }
-
         /* Minimalist Contact Icons */
         .hero-contact {
             display: flex;
             flex-direction: row;
             gap: 25px;
             justify-content: center;
-            margin-top: 10px;
+            margin-top: 15px; 
         }
 
         .hero-contact a {
-            color: var(--text-main);
+            color: var(--link-brown);
             font-size: 1.8em;
             transition: transform 0.4s ease, opacity 0.4s ease;
             text-decoration: none;
             border: none;
-            opacity: 0.7;
+            opacity: 0.8;
         }
 
         .hero-contact a:hover {
             transform: translateY(-3px);
             opacity: 1;
             border: none;
+            color: var(--accent-dark);
         }
 
         /* Right Side: About Me */
@@ -182,7 +174,7 @@
         }
 
         .nav-container a:hover {
-            color: var(--accent-dark);
+            color: var(--link-brown);
             border-bottom: none;
         }
 
@@ -209,7 +201,7 @@
         }
 
         section {
-            margin-bottom: 80px; /* Increased margin for negative space */
+            margin-bottom: 80px; 
             scroll-margin-top: 100px;
         }
 
@@ -230,8 +222,8 @@
         }
 
         .item-list li::before {
-            content: "—"; /* Replaced heavy bullet with elegant em-dash */
-            color: var(--text-muted);
+            content: "—"; 
+            color: var(--link-brown);
             position: absolute;
             left: 0;
         }
@@ -253,7 +245,7 @@
             left: 0;
             font-size: 1.1em;
             line-height: 1.5;
-            filter: grayscale(100%) opacity(0.6); /* Desaturated emoji */
+            filter: grayscale(100%) opacity(0.6); 
         }
 
         .date-tag {
@@ -276,7 +268,7 @@
         }
 
         /* -------------------------------------
-           ZEN SKILL BARS
+           ZEN SKILL BARS (Graded Colors)
         -------------------------------------- */
         .skills-grid {
             display: grid;
@@ -305,16 +297,14 @@
             font-weight: 400;
         }
 
-        /* Minimalist flat bars */
         .zen-bar {
             background-color: var(--bar-bg);
-            height: 3px; /* Very thin and elegant */
+            height: 3px; 
             width: 100%;
-            border-radius: 0; /* Sharp edges */
+            border-radius: 0; 
         }
 
         .zen-fill {
-            background-color: var(--bar-fill);
             height: 100%;
             border-radius: 0;
         }
@@ -347,7 +337,6 @@
             <div class="hero-left">
                 <img src="profile.jpg" alt="Yiu Yin YUNG" class="hero-img">
                 <h1>Yiu Yin YUNG</h1>
-                <h2>MPhil Student, HKU<br>Incoming PhD, Cambridge</h2>
                 
                 <div class="hero-contact">
                     <a href="mailto:u3568933@connect.hku.hk" title="Email Me" class="zen-icon">📧</a>
@@ -396,13 +385,14 @@
             <ul class="edu-list">
                 <li>
                     <strong>University of Cambridge</strong> <span class="date-tag"></span><br>
-                    PhD in Biostatistics, MRC Biostatistics Unit (Queens' College)<br>
-                    <em>Supervisors: Dr. Robert Goudie and Dr. Brian Tom</em>
+                    PhD in Biostatistics, MRC Biostatistics Unit<br>
+                    <em>Affiliated to Queens' College</em><br>
+                    <span style="color: var(--text-muted); font-size: 0.95em;"><em>Supervisors: Dr. Robert Goudie and Dr. Brian Tom</em></span>
                 </li>
                 <li>
                     <strong>The University of Hong Kong</strong> <span class="date-tag"></span><br>
                     MPhil in Statistics, Department of Statistics and Actuarial Science<br>
-                    <em>Supervisors: Dr. Edwin Fong and Prof. Stephen Lee</em>
+                    <span style="color: var(--text-muted); font-size: 0.95em;"><em>Supervisors: Dr. Edwin Fong and Prof. Stephen Lee</em></span>
                 </li>
                 <li>
                     <strong>The University of Hong Kong</strong> <span class="date-tag"></span><br>
@@ -416,7 +406,7 @@
             <ul class="item-list">
                 <li>
                     <strong>Moment Martingale Posteriors for Semiparametric Predictive Bayes.</strong><br>
-                    Yung, Y. Y., Lee, S., & Fong, E. (2025). arXiv preprint arXiv:2507.18148.<br>
+                    Yung, Y. Y., Lee, S., & Fong, E. (2025). arXiv preprint <a href="https://arxiv.org/abs/2507.18148" target="_blank">arXiv:2507.18148</a>.<br>
                 </li>
             </ul>
         </section>
@@ -463,17 +453,17 @@
                     
                     <div class="skill">
                         <div class="skill-name"><span>Chinese Mandarin</span></div>
-                        <div class="zen-bar"><div class="zen-fill" style="width: 100%;"></div></div>
+                        <div class="zen-bar"><div class="zen-fill" style="width: 100%; background-color: #000000;"></div></div>
                     </div>
                     
                     <div class="skill">
                         <div class="skill-name"><span>Chinese Cantonese</span></div>
-                        <div class="zen-bar"><div class="zen-fill" style="width: 100%;"></div></div>
+                        <div class="zen-bar"><div class="zen-fill" style="width: 100%; background-color: #000000;"></div></div>
                     </div>
 
                     <div class="skill">
                         <div class="skill-name"><span>English</span></div>
-                        <div class="zen-bar"><div class="zen-fill" style="width: 83.3%;"></div></div>
+                        <div class="zen-bar"><div class="zen-fill" style="width: 83.3%; background-color: #2b2b2b;"></div></div>
                     </div>
                 </div>
 
@@ -482,24 +472,34 @@
                     
                     <div class="skill">
                         <div class="skill-name"><span>Singing</span></div>
-                        <div class="zen-bar"><div class="zen-fill" style="width: 100%;"></div></div>
+                        <div class="zen-bar"><div class="zen-fill" style="width: 100%; background-color: #000000;"></div></div>
                     </div>
 
                     <div class="skill">
                         <div class="skill-name"><span>Movies</span></div>
-                        <div class="zen-bar"><div class="zen-fill" style="width: 100%;"></div></div>
+                        <div class="zen-bar"><div class="zen-fill" style="width: 100%; background-color: #000000;"></div></div>
                     </div>
 
                     <div class="skill">
                         <div class="skill-name"><span>Swimming</span></div>
-                        <div class="zen-bar"><div class="zen-fill" style="width: 80%;"></div></div>
+                        <div class="zen-bar"><div class="zen-fill" style="width: 80%; background-color: #333333;"></div></div>
                     </div>
 
                     <div class="skill">
                         <div class="skill-name"><span>Photography</span></div>
-                        <div class="zen-bar"><div class="zen-fill" style="width: 70%;"></div></div>
+                        <div class="zen-bar"><div class="zen-fill" style="width: 70%; background-color: #4d4d4d;"></div></div>
                     </div>
 
                     <div class="skill">
                         <div class="skill-name"><span>Karate</span></div>
-                        <div class="zen-bar"><div class="zen
+                        <div class="zen-bar"><div class="zen-fill" style="width: 50%; background-color: #808080;"></div></div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>
