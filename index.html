@@ -5,205 +5,224 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yiu Yin YUNG</title>
     <style>
-        /* CSS Variables: Black base with Red accents */
+        /* CSS Variables: Red Hero + Dark Mode Base */
         :root {
-            --primary-text: #111111;
-            --secondary-text: #555555;
-            --link-color: #9e1030;
-            --link-hover: #ff2a55;
-            --bg-color: #ffffff;
-            --sidebar-bg: #f5f5f5;
-            --border-color: #eaeaea;
-            --bar-bg: #e0e0e0;
-            --bar-fill: #9e1030;
+            --bg-dark: #121212; /* Sleek black background */
+            --bg-card: #1e1e1e; /* Slightly lighter black for sections */
+            --text-main: #f0f0f0; /* Crisp white text */
+            --text-muted: #a0a0a0; /* Grey text for dates/subtitles */
+            --accent-red: #d32f2f; /* Bright red for links on black */
+            --hero-bg: #8b0000; /* Deep red for the first page */
+            --hero-gradient: linear-gradient(135deg, #700000 0%, #b30000 100%);
+            --border-color: #333333;
+            --bar-bg: #333333;
+            --bar-fill: #d32f2f;
+        }
+
+        /* Smooth scrolling behavior */
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
-            color: var(--primary-text);
-            background-color: var(--bg-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-dark);
             line-height: 1.6;
             margin: 0;
             padding: 0;
         }
 
         a {
-            color: var(--link-color);
+            color: var(--accent-red);
             text-decoration: none;
+            transition: color 0.2s ease;
         }
 
         a:hover {
             text-decoration: underline;
-            color: var(--link-hover);
+            color: #ff6666;
         }
 
-        /* Top Navigation */
+        /* -------------------------------------
+           FIRST PAGE: RED HERO SECTION
+        -------------------------------------- */
+        .hero {
+            height: 100vh; /* Takes up 100% of the screen height */
+            background: var(--hero-gradient);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .hero-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%; /* Circle profile pic */
+            object-fit: cover;
+            border: 4px solid white;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin: 0 0 10px 0;
+            letter-spacing: 2px;
+        }
+
+        .hero h2 {
+            font-size: 1.2em;
+            font-weight: 400;
+            margin: 0 0 25px 0;
+            color: #ffe6e6; /* Soft pink/white */
+        }
+
+        .hero-contact {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hero-contact a {
+            color: white;
+            border: 1px solid rgba(255,255,255,0.5);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.95em;
+        }
+
+        .hero-contact a:hover {
+            background-color: white;
+            color: var(--hero-bg);
+            text-decoration: none;
+        }
+
+        /* Scroll Down Arrow */
+        .scroll-down {
+            position: absolute;
+            bottom: 40px;
+            color: white;
+            font-size: 1em;
+            letter-spacing: 1px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-7px); }
+        }
+
+        /* -------------------------------------
+           STICKY NAVBAR
+        -------------------------------------- */
         .navbar {
-            border-top: 5px solid var(--link-color);
+            background: rgba(18, 18, 18, 0.95);
             border-bottom: 1px solid var(--border-color);
             padding: 15px 0;
-            background: var(--bg-color);
             position: sticky;
             top: 0;
             z-index: 1000;
+            backdrop-filter: blur(10px); /* Creates a cool glass effect */
         }
 
         .nav-container {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
             display: flex;
-            justify-content: flex-end;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
             padding: 0 20px;
-            flex-wrap: wrap; /* Allows wrapping on very small screens */
         }
 
         .nav-container a {
-            margin-left: 20px;
-            color: var(--primary-text);
+            color: var(--text-main);
             font-weight: 500;
             font-size: 0.95em;
         }
 
         .nav-container a:hover {
-            color: var(--link-color);
-            text-decoration: none;
+            color: var(--accent-red);
         }
 
-        /* Main Page Layout */
-        .page-wrapper {
-            max-width: 1100px;
-            margin: 40px auto;
-            display: flex;
+        /* -------------------------------------
+           MAIN CONTENT (BLACK BACKGROUND)
+        -------------------------------------- */
+        .content-wrapper {
+            max-width: 1000px;
+            margin: 50px auto;
             padding: 0 20px;
-            gap: 40px;
+            display: grid;
+            grid-template-columns: 2fr 1fr; /* 2 columns: Text left, Skills right */
+            gap: 50px;
         }
 
-        /* Left Sidebar (Profile) */
-        .sidebar {
-            flex: 0 0 280px;
-        }
-
-        .profile-img {
-            width: 100%;
-            border-radius: 5px;
-            margin-bottom: 15px;
-        }
-
-        .sidebar h1 {
-            font-size: 1.5em;
-            margin: 0 0 5px 0;
-            color: var(--primary-text);
-        }
-
-        .sidebar h2 {
-            font-size: 1.1em;
-            font-weight: normal;
-            color: var(--secondary-text);
-            margin: 0 0 20px 0;
-        }
-
-        .contact-info {
-            font-size: 0.9em;
-            margin-bottom: 30px;
-        }
-
-        .contact-info div {
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-        }
-
-        /* Progress Bars for Languages & Hobbies */
-        .sidebar-section {
-            margin-bottom: 25px;
-        }
-
-        .sidebar-section h3 {
-            font-size: 1em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-            color: var(--secondary-text);
-        }
-
-        .skill {
-            margin-bottom: 12px;
-            font-size: 0.85em;
-        }
-
-        .skill-name {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 3px;
-            font-weight: 500;
-        }
-
-        .skill-bar {
-            background-color: var(--bar-bg);
-            border-radius: 3px;
-            height: 6px;
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .skill-fill {
-            background-color: var(--bar-fill);
-            height: 100%;
-        }
-
-        /* Right Content Area */
-        .content {
-            flex: 1;
+        .main-column {
             min-width: 0;
         }
 
-        .content h2 {
-            font-size: 1.7em;
+        .side-column {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 10px;
+            height: fit-content;
+            border: 1px solid var(--border-color);
+        }
+
+        h2 {
+            font-size: 1.8em;
             border-bottom: 1px solid var(--border-color);
             padding-bottom: 10px;
             margin-top: 0;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            color: var(--text-main);
         }
 
         section {
-            margin-bottom: 50px;
+            margin-bottom: 60px;
+            scroll-margin-top: 80px; /* Prevents navbar from hiding titles when scrolling */
         }
 
         p {
             margin-bottom: 15px;
         }
 
-        /* Standard List Formatting */
+        /* Lists */
         .item-list {
             list-style: none;
             padding: 0;
         }
 
         .item-list li {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             padding-left: 20px;
             position: relative;
         }
 
         .item-list li::before {
             content: "•";
-            color: var(--link-color);
+            color: var(--accent-red);
             font-weight: bold;
             position: absolute;
             left: 0;
         }
 
-        /* Education specific list with Graduation Hats */
         .edu-list {
             list-style: none;
             padding: 0;
         }
 
         .edu-list li {
-            margin-bottom: 20px;
-            padding-left: 30px; 
+            margin-bottom: 25px;
+            padding-left: 35px;
             position: relative;
         }
 
@@ -216,39 +235,86 @@
         }
 
         .date-tag {
-            color: var(--secondary-text);
+            color: var(--text-muted);
             font-size: 0.9em;
             font-weight: 500;
         }
         
         .sub-list {
             font-size: 0.95em;
-            color: var(--secondary-text);
-            margin-top: 5px;
+            color: var(--text-muted);
+            margin-top: 8px;
+            line-height: 1.8;
         }
 
-        /* Responsive */
+        /* -------------------------------------
+           SKILL BARS (SIDE COLUMN)
+        -------------------------------------- */
+        .sidebar-section {
+            margin-bottom: 30px;
+        }
+
+        .sidebar-section h3 {
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .skill {
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            color: var(--text-muted);
+        }
+
+        .skill-bar {
+            background-color: var(--bar-bg);
+            border-radius: 4px;
+            height: 6px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            background-color: var(--bar-fill);
+            height: 100%;
+            border-radius: 4px;
+        }
+
+        /* Responsive Design */
         @media (max-width: 800px) {
-            .page-wrapper {
-                flex-direction: column;
+            .content-wrapper {
+                grid-template-columns: 1fr; /* Stacks to single column on mobile */
             }
-            .sidebar {
-                flex: none;
-                width: 100%;
-                text-align: center;
-                border-bottom: 1px solid var(--border-color);
-                padding-bottom: 20px;
-            }
-            .contact-info div {
-                justify-content: center;
-            }
-            .nav-container {
-                justify-content: center;
+            .hero h1 {
+                font-size: 2.2em;
             }
         }
     </style>
 </head>
 <body>
+
+    <header class="hero">
+        <img src="profile.jpg" alt="Yiu Yin YUNG" class="hero-img">
+        <h1>Yiu Yin YUNG</h1>
+        <h2>MPhil Student, HKU | Incoming PhD, Cambridge</h2>
+        <div class="hero-contact">
+            <a href="mailto:u3568933@connect.hku.hk">📧 u3568933@connect.hku.hk</a>
+            <a href="https://scholar.google.com/citations?hl=zh-CN&user=dE3RppcAAAAJ" target="_blank">🎓 Google Scholar</a>
+            <a href="https://github.com/u3568933" target="_blank">💻 GitHub</a>
+        </div>
+        
+        <a href="#about" class="scroll-down">⬇ Scroll Down</a>
+    </header>
 
     <nav class="navbar">
         <div class="nav-container">
@@ -261,68 +327,9 @@
         </div>
     </nav>
 
-    <div class="page-wrapper">
+    <main class="content-wrapper">
         
-        <aside class="sidebar">
-            <img src="profile.jpg" alt="Yiu Yin YUNG" class="profile-img">
-            <h1>Yiu Yin YUNG</h1>
-            
-            <div class="contact-info">
-                <div>📧 <a href="mailto:u3568933@connect.hku.hk" style="margin-left: 10px;">u3568933@connect.hku.hk</a></div>
-                <div>🎓 <a href="https://scholar.google.com/citations?hl=zh-CN&user=dE3RppcAAAAJ" target="_blank" style="margin-left: 10px;">Google Scholar</a></div>
-                <div>📍 <span style="margin-left: 10px;">Hong Kong / UK</span></div>
-            </div>
-
-            <div class="sidebar-section">
-                <h3>Languages</h3>
-                
-                <div class="skill">
-                    <div class="skill-name"><span>Chinese Mandarin</span></div>
-                    <div class="skill-bar"><div class="skill-fill" style="width: 100%;"></div></div>
-                </div>
-                
-                <div class="skill">
-                    <div class="skill-name"><span>Chinese Cantonese</span></div>
-                    <div class="skill-bar"><div class="skill-fill" style="width: 100%;"></div></div>
-                </div>
-
-                <div class="skill">
-                    <div class="skill-name"><span>English</span></div>
-                    <div class="skill-bar"><div class="skill-fill" style="width: 83.3%;"></div></div>
-                </div>
-            </div>
-
-            <div class="sidebar-section">
-                <h3>Hobbies</h3>
-                
-                <div class="skill">
-                    <div class="skill-name"><span>Singing</span></div>
-                    <div class="skill-bar"><div class="skill-fill" style="width: 100%;"></div></div>
-                </div>
-
-                <div class="skill">
-                    <div class="skill-name"><span>Movies</span></div>
-                    <div class="skill-bar"><div class="skill-fill" style="width: 100%;"></div></div>
-                </div>
-
-                <div class="skill">
-                    <div class="skill-name"><span>Swimming</span></div>
-                    <div class="skill-bar"><div class="skill-fill" style="width: 80%;"></div></div>
-                </div>
-
-                <div class="skill">
-                    <div class="skill-name"><span>Photography</span></div>
-                    <div class="skill-bar"><div class="skill-fill" style="width: 70%;"></div></div>
-                </div>
-
-                <div class="skill">
-                    <div class="skill-name"><span>Karate</span></div>
-                    <div class="skill-bar"><div class="skill-fill" style="width: 50%;"></div></div>
-                </div>
-            </div>
-        </aside>
-
-        <main class="content">
+        <div class="main-column">
             
             <section id="about">
                 <h2>About Me</h2>
@@ -349,7 +356,6 @@
                         <strong>University of Cambridge</strong> <span class="date-tag"></span><br>
                         PhD in Biostatistics, MRC Biostatistics Unit<br>
                         <em>Supervisors: Dr. Robert Goudie and Dr. Brian Tom</em>
-                        <em> Affiliated with Queens' College</em>
                     </li>
                     <li>
                         <strong>The University of Hong Kong</strong> <span class="date-tag"></span><br>
@@ -405,9 +411,59 @@
                     </li>
                 </ul>
             </section>
+        </div>
 
-        </main>
-    </div>
+        <div class="side-column">
+            <div class="sidebar-section">
+                <h3>Languages</h3>
+                
+                <div class="skill">
+                    <div class="skill-name"><span>Chinese Mandarin</span></div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 100%;"></div></div>
+                </div>
+                
+                <div class="skill">
+                    <div class="skill-name"><span>Chinese Cantonese</span></div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 100%;"></div></div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name"><span>English</span></div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 83.3%;"></div></div>
+                </div>
+            </div>
+
+            <div class="sidebar-section" style="margin-bottom: 0;">
+                <h3>Hobbies</h3>
+                
+                <div class="skill">
+                    <div class="skill-name"><span>Singing</span></div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 100%;"></div></div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name"><span>Movies</span></div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 100%;"></div></div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name"><span>Swimming</span></div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 80%;"></div></div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name"><span>Photography</span></div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 70%;"></div></div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name"><span>Karate</span></div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 50%;"></div></div>
+                </div>
+            </div>
+        </div>
+
+    </main>
 
 </body>
 </html>
