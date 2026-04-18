@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yiu Yin YUNG - Personal Website</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --link-color: #2980b9;
+            --link-hover: #1abc9c;
+            --text-color: #333333;
+            --bg-color: #ffffff;
+            --highlight: #c0392b;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Sidebar Profile Section */
+        .sidebar {
+            flex: 1;
+            padding-right: 40px;
+            min-width: 250px;
+        }
+
+        .sidebar h1 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-size: 2em;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            font-size: 0.95em;
+        }
+
+        .contact-info a {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            color: var(--link-hover);
+            text-decoration: underline;
+        }
+
+        /* Main Content Section */
+        .content {
+            flex: 2.5;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .highlight {
+            color: var(--highlight);
+            font-weight: bold;
+            font-size: 0.9em;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 15px;
+        }
+
+        /* Responsive Design for Mobile */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .sidebar {
+                padding-right: 0;
+                margin-bottom: 40px;
+                text-align: center;
+                border-bottom: 2px solid #eee;
+                padding-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="sidebar">
+        <h1>Yiu Yin YUNG</h1>
+        <div class="contact-info">
+            <a href="mailto:u3568933@connect.hku.hk">📧 u3568933@connect.hku.hk</a>
+            <a href="https://scholar.google.com/citations?hl=zh-CN&user=dE3RppcAAAAJ" target="_blank">🎓 Google Scholar</a>
+            </div>
+    </div>
+
+    <div class="content">
+        
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I am currently an MPhil student at the <a href="https://saasweb.hku.hk/" target="_blank">Department of Statistics and Actuarial Science</a> at the University of Hong Kong, where I am fortunate to be supervised by <a href="https://edfong.github.io/" target="_blank">Dr. Edwin Fong</a> and co-supervised by <a href="https://saasweb.hku.hk/staff/smslee/" target="_blank">Prof. Stephen Lee</a>. Prior to this, I completed my undergraduate studies at the same department.</p>
+            
+            <p>I am an incoming PhD student at the <a href="https://www.mrc-bsu.cam.ac.uk/" target="_blank">University of Cambridge MRC Biostatistics Unit</a>, where I will be supervised by <a href="https://www.mrc-bsu.cam.ac.uk/staff/robert-goudie" target="_blank">Dr. Robert Goudie</a> and <a href="https://www.mrc-bsu.cam.ac.uk/staff/brian-tom" target="_blank">Dr. Brian Tom</a>.</p>
+        </section>
+
+        <section id="research">
+            <h2>Research Interests</h2>
+            <ul>
+                <li>Predictive Bayes, Martingale Posteriors</li>
+                <li>Generalised Bayes, Cut Model Inference, Empirical Likelihood</li>
+                <li>Causal Inference</li>
+            </ul>
+        </section>
+
+        <section id="publications">
+            <h2>Publications</h2>
+            <ul>
+                <li>
+                    <strong>Moment Martingale Posteriors for Semiparametric Predictive Bayes.</strong><br>
+                    Yung, Y. Y., Lee, S., & Fong, E. (2025).<br>
+                    <em>arXiv preprint arXiv:2507.18148.</em><br>
+                    <span class="highlight">[Oral presentation at ISBA World Meeting 2026]</span>
+                </li>
+            </ul>
+        </section>
+
+    </div>
+</div>
+
+</body>
+</html>
