@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yiu Yin YUNG</title>
     <style>
-        /* CSS Variables to match the theme */
+        /* CSS Variables: Black base with Red accents */
         :root {
-            --primary-text: #333;
-            --secondary-text: #737373;
-            --link-color: #0072b3;
-            --link-hover: #004b76;
+            --primary-text: #111111; /* True black/dark grey base */
+            --secondary-text: #555555;
+            --link-color: #9e1030; /* Deep Academic Red */
+            --link-hover: #ff2a55; /* Bright Red on hover */
             --bg-color: #ffffff;
             --sidebar-bg: #f5f5f5;
             --border-color: #eaeaea;
             --bar-bg: #e0e0e0;
-            --bar-fill: #4caf50;
+            --bar-fill: #9e1030; /* Red progress bars */
         }
 
         body {
@@ -39,7 +39,7 @@
 
         /* Top Navigation */
         .navbar {
-            border-top: 5px solid var(--primary-text);
+            border-top: 5px solid var(--link-color); /* Red top accent line */
             border-bottom: 1px solid var(--border-color);
             padding: 15px 0;
             background: var(--bg-color);
@@ -84,7 +84,7 @@
 
         .profile-img {
             width: 100%;
-            border-radius: 5px; /* Square with rounded corners like the theme */
+            border-radius: 5px;
             margin-bottom: 15px;
         }
 
@@ -136,6 +136,7 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 3px;
+            font-weight: 500;
         }
 
         .skill-bar {
@@ -154,7 +155,7 @@
         /* Right Content Area */
         .content {
             flex: 1;
-            min-width: 0; /* Prevents flex blowout */
+            min-width: 0;
         }
 
         .content h2 {
@@ -173,7 +174,7 @@
             margin-bottom: 15px;
         }
 
-        /* Lists formatting */
+        /* Standard List Formatting */
         .item-list {
             list-style: none;
             padding: 0;
@@ -193,21 +194,30 @@
             left: 0;
         }
 
+        /* Education specific list with Graduation Hats */
+        .edu-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .edu-list li {
+            margin-bottom: 20px;
+            padding-left: 30px; /* Slightly wider padding for the emoji */
+            position: relative;
+        }
+
+        .edu-list li::before {
+            content: "🎓";
+            position: absolute;
+            left: 0;
+            font-size: 1.1em;
+            line-height: 1.4;
+        }
+
         .date-tag {
             color: var(--secondary-text);
             font-size: 0.9em;
             font-weight: 500;
-        }
-
-        .highlight-tag {
-            background-color: #fff3cd;
-            color: #856404;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-size: 0.85em;
-            font-weight: bold;
-            margin-top: 5px;
-            display: inline-block;
         }
 
         /* Responsive */
@@ -255,7 +265,7 @@
                 <div>📍 <span style="margin-left: 10px;">Hong Kong / UK</span></div>
             </div>
 
-           <div class="sidebar-section">
+            <div class="sidebar-section">
                 <h3>Languages</h3>
                 
                 <div class="skill">
@@ -326,7 +336,7 @@
 
             <section id="experience">
                 <h2>Experience & Education</h2>
-                <ul class="item-list">
+                <ul class="edu-list">
                     <li>
                         <strong>University of Cambridge</strong> <span class="date-tag"></span><br>
                         PhD in Biostatistics, MRC Biostatistics Unit<br>
