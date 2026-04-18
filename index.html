@@ -50,12 +50,24 @@
             background: var(--hero-gradient);
             color: white;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
             padding: 60px 20px;
             box-sizing: border-box;
+        }
+
+        .hero-content {
+            display: flex;
+            max-width: 1000px;
+            width: 100%;
+            gap: 60px;
+            align-items: center; /* Vertically centers the text with the photo */
+        }
+
+        /* Left Side: Photo and Contact */
+        .hero-left {
+            flex: 0 0 300px; /* Fixed width for the profile section */
+            text-align: center;
         }
 
         .hero-img {
@@ -69,24 +81,24 @@
         }
 
         .hero h1 {
-            font-size: 3em;
-            margin: 0 0 10px 0;
-            letter-spacing: 2px;
+            font-size: 2.5em;
+            margin: 0 0 5px 0;
+            letter-spacing: 1px;
         }
 
         .hero h2 {
-            font-size: 1.2em;
+            font-size: 1.1em;
             font-weight: 400;
             margin: 0 0 25px 0;
             color: #ffe6e6;
+            line-height: 1.4;
         }
 
         .hero-contact {
             display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 40px;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
         }
 
         .hero-contact a {
@@ -95,6 +107,8 @@
             padding: 8px 15px;
             border-radius: 20px;
             font-size: 0.95em;
+            width: 80%;
+            box-sizing: border-box;
         }
 
         .hero-contact a:hover {
@@ -103,9 +117,13 @@
             text-decoration: none;
         }
 
-        /* Hero About Me Section */
+        /* Right Side: About Me */
+        .hero-right {
+            flex: 1;
+            text-align: left;
+        }
+
         .hero-about {
-            max-width: 800px;
             font-size: 1.05em;
             color: #f8f8f8;
         }
@@ -296,6 +314,14 @@
 
         /* Responsive Design */
         @media (max-width: 800px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            .hero-right {
+                text-align: center;
+            }
             .hero h1 {
                 font-size: 2.2em;
             }
@@ -309,20 +335,29 @@
 <body>
 
     <header class="hero" id="about">
-        <img src="profile.jpg" alt="Yiu Yin YUNG" class="hero-img">
-        <h1>Yiu Yin YUNG</h1>
-        
-        <div class="hero-contact">
-            <a href="mailto:u3568933@connect.hku.hk">📧 u3568933@connect.hku.hk</a>
-            <a href="https://scholar.google.com/citations?hl=zh-CN&user=dE3RppcAAAAJ" target="_blank">🎓 Google Scholar</a>
-        </div>
-        
-        <div class="hero-about">
-            <p>I am currently an MPhil student at the <a href="https://saasweb.hku.hk/" target="_blank">Department of Statistics and Actuarial Science, University of Hong Kong</a>, where I am fortunate to be supervised by <a href="https://edfong.github.io/" target="_blank">Dr. Edwin Fong</a> and co-supervised by <a href="https://saasweb.hku.hk/staff/smslee/" target="_blank">Prof. Stephen Lee</a>.</p>
+        <div class="hero-content">
             
-            <p>I am an incoming PhD student at the <a href="https://www.mrc-bsu.cam.ac.uk/" target="_blank">University of Cambridge MRC Biostatistics Unit</a>, where I will be supervised by <a href="https://www.mrc-bsu.cam.ac.uk/staff/robert-goudie" target="_blank">Dr. Robert Goudie</a> and <a href="https://www.mrc-bsu.cam.ac.uk/staff/brian-tom" target="_blank">Dr. Brian Tom</a>.</p>
-            
-            <p><strong>Research Interests:</strong> Predictive Bayes, Martingale Posteriors, Generalised Bayes, Cut Model Inference, Empirical Likelihood, and Causal Inference.</p>
+            <div class="hero-left">
+                <img src="profile.jpg" alt="Yiu Yin YUNG" class="hero-img">
+                <h1>Yiu Yin YUNG</h1>
+                <h2>MPhil Student, HKU<br>Incoming PhD, Cambridge</h2>
+                
+                <div class="hero-contact">
+                    <a href="mailto:u3568933@connect.hku.hk">📧 u3568933@connect.hku.hk</a>
+                    <a href="https://scholar.google.com/citations?hl=zh-CN&user=dE3RppcAAAAJ" target="_blank">🎓 Google Scholar</a>
+                </div>
+            </div>
+
+            <div class="hero-right">
+                <div class="hero-about">
+                    <p>I am currently an MPhil student at the <a href="https://saasweb.hku.hk/" target="_blank">Department of Statistics and Actuarial Science, University of Hong Kong</a>, where I am fortunate to be supervised by <a href="https://edfong.github.io/" target="_blank">Dr. Edwin Fong</a> and co-supervised by <a href="https://saasweb.hku.hk/staff/smslee/" target="_blank">Prof. Stephen Lee</a>.</p>
+                    
+                    <p>I am an incoming PhD student at the <a href="https://www.mrc-bsu.cam.ac.uk/" target="_blank">University of Cambridge MRC Biostatistics Unit</a>, where I will be supervised by <a href="https://www.mrc-bsu.cam.ac.uk/staff/robert-goudie" target="_blank">Dr. Robert Goudie</a> and <a href="https://www.mrc-bsu.cam.ac.uk/staff/brian-tom" target="_blank">Dr. Brian Tom</a>.</p>
+                    
+                    <p><strong>Research Interests:</strong> Predictive Bayes, Martingale Posteriors, Generalised Bayes, Cut Model Inference, Empirical Likelihood, and Causal Inference.</p>
+                </div>
+            </div>
+
         </div>
     </header>
 
@@ -353,8 +388,8 @@
             <h2>Education</h2>
             <ul class="edu-list">
                 <li>
-                    <strong>University of Cambridge</strong> <span class="date-tag"></span><br>
-                    PhD in Biostatistics, MRC Biostatistics Unit (Queens' College)<br>
+                    <strong>University of Cambridge (Queens' College)</strong> <span class="date-tag"></span><br>
+                    PhD in Biostatistics, MRC Biostatistics Unit<br>
                     <em>Supervisors: Dr. Robert Goudie and Dr. Brian Tom</em>
                 </li>
                 <li>
