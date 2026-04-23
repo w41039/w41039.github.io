@@ -242,6 +242,7 @@
             left: 0;
         }
 
+        /* Education List with Graduation Cap */
         .edu-list {
             list-style: none;
             padding: 0;
@@ -255,6 +256,27 @@
 
         .edu-list li::before {
             content: "🎓";
+            position: absolute;
+            left: 0;
+            font-size: 1.1em;
+            line-height: 1.5;
+            filter: grayscale(100%) opacity(0.6); 
+        }
+
+        /* Experience List with Briefcase */
+        .exp-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .exp-list li {
+            margin-bottom: 30px;
+            padding-left: 35px;
+            position: relative;
+        }
+
+        .exp-list li::before {
+            content: "💼";
             position: absolute;
             left: 0;
             font-size: 1.1em;
@@ -384,6 +406,7 @@
             <a href="#experience">Experience</a>
             <a href="#awards">Awards</a>
             <a href="#skills">Skills & Hobbies</a>
+            <a href="#friends">Friends</a>
         </div>
     </nav>
 
@@ -431,7 +454,7 @@
 
         <section id="experience">
             <h2>Experience</h2>
-            <ul class="item-list">
+            <ul class="exp-list">
                 <li>
                     <strong>Teaching Assistant</strong> <span class="date-tag"></span><br>
                     Department of Statistics and Actuarial Science, The University of Hong Kong<br>
