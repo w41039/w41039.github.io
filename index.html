@@ -244,6 +244,29 @@
             left: 0;
         }
 
+        /* Friends List (2-Column Grid) */
+        .friends-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 40px;
+            row-gap: 15px;
+        }
+
+        .friends-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .friends-list li::before {
+            content: "—"; 
+            color: var(--link-brown);
+            position: absolute;
+            left: 0;
+        }
+
         /* Education List with Graduation Cap */
         .edu-list {
             list-style: none;
@@ -360,9 +383,10 @@
             .hero h1 {
                 font-size: 2.2em;
             }
-            .skills-grid {
+            .skills-grid,
+            .friends-list {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 20px;
             }
         }
     </style>
@@ -413,7 +437,7 @@
             <a href="#publications">Publications</a>
             <a href="#experience">Experience</a>
             <a href="#awards">Awards</a>
-            <a href="#skills">Skills & Hobbies</a>
+            <a href="#skills">Languages & Hobbies</a>
             <a href="#friends">Friends</a>
         </div>
     </nav>
@@ -557,7 +581,7 @@
 
         <section id="friends">
             <h2>Some Close Friends of Mine</h2>
-            <ul class="item-list">
+            <ul class="friends-list">
                 <li>
                     <a href="https://stlllll.github.io/" target="_blank">Taole Sha</a>
                 </li>
@@ -565,7 +589,10 @@
                     <a href="https://www.jakeliukayak.com/" target="_blank">Jake Liu</a>
                 </li>
                 <li>
-                    <a href="https://zhuoyue-huang.github.io/" target="_blank">Zhuoyue Huang</a> (I actually copied my website from her :)
+                    <a href="https://zhuoyue-huang.github.io/" target="_blank">Zhuoyue Huang</a> (I actually copied my website from her :))
+                </li>
+                <li>
+                    <a href="https://joshuarooijakkers.github.io/" target="_blank">Joshua Rooijakkers</a>
                 </li>
             </ul>
         </section>
